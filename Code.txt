@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:title" content="1 Gorilla vs 100 Men - What’s Your Position?">
+  <meta property="og:description" content="Find out your position in the queue to fight the gorilla. Are you #1 or #100?">
+  <meta property="og:image" content="https://yourdomain.com/share-image.jpg">
+  <meta property="og:url" content="https://yourdomain.com">
+  <title>1 Gorilla vs 100 Men</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #1c1c1c;
+      color: #fff;
+      text-align: center;
+      padding: 50px;
+    }
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+    }
+    .number-box {
+      font-size: 5em;
+      margin: 30px 0;
+      color: #ffcc00;
+    }
+    .description {
+      font-size: 1.2em;
+      margin: 20px 0;
+      color: #ccc;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 1.2em;
+      background-color: #ffcc00;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #e6b800;
+    }
+    .share, .ads {
+      margin-top: 30px;
+    }
+    .ads {
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+  <h1>1 Gorilla vs 100 Men</h1>
+  <p>What position are you in to fight the gorilla?</p>
+  <div class="number-box" id="position">--</div>
+  <div class="description" id="description">Click the button to discover your fate.</div>
+  <button onclick="generateNumber()">Find Out Now</button>
+
+  <div class="share">
+    <p>Share your result:</p>
+    <div id="fb-share-button">
+      <a href="#" onclick="shareToFacebook()">Share on Facebook</a>
+    </div>
+  </div>
+
+  <div class="ads">
+    <!-- Insert AdSense or other ad scripts here -->
+    <p>Advertisement</p>
+    <div style="background: #333; padding: 20px;">Ad Placeholder</div>
+  </div>
+
+  <script>
+    function generateNumber() {
+      const position = Math.floor(Math.random() * 100) + 1;
+      document.getElementById('position').innerText = position;
+      document.getElementById('description').innerText = getSurvivalDescription(position);
+    }
+
+    function getSurvivalDescription(num) {
+      if (num >= 1 && num <= 10) return "💀 Instant death. You’re the warm-up act. 0% chance of survival.";
+      if (num >= 11 && num <= 20) return "🦍 Trashed by the full force of a sprinting gorilla. 5% chance of survival (and that's if you bounce).";
+      if (num >= 21 && num <= 30) return "🪓 Clubbed to death… but not by the gorilla. Someone else’s detached limb did the job. 10% chance of survival.";
+      if (num >= 31 && num <= 40) return "🩸 Mauled and possibly turned into modern art by the gorilla. 20% chance of survival.";
+      if (num >= 41 && num <= 50) return "🧟 Still getting wrecked, but maybe the gorilla is a *tiny* bit tired. 30% chance of survival.";
+      if (num >= 51 && num <= 60) return "😬 You might land a hit... before becoming a gorilla-shaped pancake. 40% chance of survival.";
+      if (num >= 61 && num <= 70) return "💪 The crowd before you softened the beast up. You might stand a chance. 50% survival odds.";
+      if (num >= 71 && num <= 80) return "🛡️ Gorilla’s exhausted. You’re basically sweeping up. 60% chance of survival.";
+      if (num >= 81 && num <= 90) return "😎 Now it’s just you versus a gorilla with jelly arms. 75% survival chance.";
+      if (num >= 91 && num <= 99) return "🏆 Almost the end. Gorilla's on its last nerve and banana. 90% chance you walk away a legend.";
+      if (num === 100) return "👑 Final boss. You finish what 99 others couldn’t. 95% chance of survival and eternal bragging rights.";
+    }
+
+    function shareToFacebook() {
+      const position = document.getElementById('position').innerText;
+      if (position === "--") return alert("Get your number first!");
+      const url = `https://www.facebook.com/sharer/sharer.php?u=https://yourdomain.com&quote=I'm #${position} in line to fight the gorilla. Find your spot!`;
+      window.open(url, '_blank');
+    }
+  </script>
+</body>
+</html>
